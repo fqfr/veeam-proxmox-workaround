@@ -20,7 +20,7 @@ This is especially useful in **Veeam Backup & Restore** environments, since Veea
 
 ### 🛠️ Usage
 
-Simply copy the script to the hypervisor you are restoring to and execute the loop:
+Simply copy the script to the hypervisor you are restoring to and execute the loop. Veeam will use the next available VMID (e.g. 102):
 
 ```bash
 wget https://raw.githubusercontent.com/fqfr/veeam-proxmox-workaround/refs/heads/main/wait-and-pin-machine.sh -O /usr/local/sbin/wait-and-pin-machine.sh
