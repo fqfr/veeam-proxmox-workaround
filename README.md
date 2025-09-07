@@ -20,21 +20,25 @@ This is especially useful in **Veeam Backup & Restore** environments, since Veea
 
 ### 🛠️ Usage
 
-Simply copy the script to the hypervisor and execute the loop:
+Simply copy the script to the hypervisor you are restoring to and execute the loop:
 
 ```bash
+wget https://raw.githubusercontent.com/fqfr/veeam-proxmox-workaround/refs/heads/main/wait-and-pin-machine.sh -O /usr/local/sbin/wait-and-pin-machine.sh
+chmod +x /usr/local/sbin/wait-and-pin-machine.sh 
+
 # Default: waits for VMID 102, auto-detects chipset, sets version to 9.2
-./wait-and-pin-machine.sh 102
+wait-and-pin-machine.sh 102
 
 # Force q35 chipset explicitly
-./wait-and-pin-machine.sh 102 q35 9.2
+wait-and-pin-machine.sh 102 q35 9.2
 
 # Force i440fx chipset explicitly
-./wait-and-pin-machine.sh 102 i440fx 9.2
+wait-and-pin-machine.sh 102 i440fx 9.2
 ```
 
 While the VM does not yet exist, the script prints a “waiting …” message every second.
-Once the config file appears, it is checked and modified if necessary.
+Now start the veeam restore.
+Once the config file appears, it is checked and modified if necessary. 
 
 ---
 
